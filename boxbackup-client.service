@@ -1,0 +1,11 @@
+[Unit]
+Description=Box Backup client
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/bbackupd -Fv
+Restart=on-failure
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

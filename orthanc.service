@@ -1,0 +1,17 @@
+[Unit]
+Description=Orthanc DICOM server
+
+## Uncomment these if you're using a separate filesystem for your Orthanc
+## data directory.
+# Requires=var-lib-orthanc.mount
+# After=var-lib-orthanc.mount
+
+[Service]
+TimeoutSec=60
+## Generate a default config file with `Orthanc --config=/etc/orthanc.json`
+ExecStart=/usr/local/bin/Orthanc /etc/orthanc.json
+Restart=on-failure
+Type=simple
+	
+[Install]
+WantedBy=multi-user.target
